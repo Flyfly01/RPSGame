@@ -2,6 +2,9 @@
 
 console.log('Hello Shannon');
 
+let computerScore = 0;
+let humanScore = 0;
+
 function getComputerChoice() {
   const choice = ['Rock', 'Paper', 'Scissors'];
   const randChoice = choice[Math.floor(Math.random() * choice.length)];
@@ -19,5 +22,5 @@ function getHumanChoice() {
   }
 }
 
-getHumanChoice();
-
+// STEP 3: Declare the players score variables and initialize them with a value of 0
+// These are global variables so I am placing them at the top 
