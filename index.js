@@ -1,42 +1,62 @@
-// STEP 1: Write the logic to get the computer choice
-
-console.log('Hello Shannon');
+console.log('Hello');
 
 let computerScore = 0;
 let humanScore = 0;
 
+// STEP 1: Write the logic to get the computer choice
+
 function getComputerChoice() {
-  const choice = ['Rock', 'Paper', 'Scissors'];
+  const choice = ['rock', 'paper', 'scissors'];
   const randChoice = choice[Math.floor(Math.random() * choice.length)];
-  return choice;
+  console.log (randChoice);
+  return randChoice;
 
 }
+
+//getComputerChoice();
 
 // STEP 2: Write the logic to get the human choice
 
 function getHumanChoice() {
-  let humanChoice = prompt('Do you choose Rock,Paper or Scissors?').toLowerCase();
-  if (humanChoice != 'Rock', 'Paper', 'Scissors'); {
-    alert ('Invalid choice! Please choose Rock, Paper or Scissors');
-    humanChoice = prompt('Do you choose Rock, Paper or Scissors?');
-  }
+  let humanInput = prompt('Do you choose Rock,Paper or Scissors?');
+  let humanChoice = humanInput.toLowerCase();
+  return humanChoice;
 }
 
-// STEP 3: Declare the players score variables and initialize them with a value of 0
-// These are global variables so I am placing them at the top 
+//getHumanChoice(); 
+
+// STEP 3: Declare the players score variables and initialize them with a value of 0 
 
 // STEP 4: Write the logic to play a single round
 
-function playRound (humanChoice, computerChoice) {
-  if (humanChoice === 'rock' && computerChoice === 'scissors' || 
-      humanChoice === 'paper' && computerChoice === 'rock' ||
-      humanChoice === 'scissors' && computerChoice === 'paper') {
-        console.log ('Congratulations! You win!');
-        humanScore++
-      } else if (humanChoice === computerChoice) {
-        console.log ("It's a tie");
-      } else {
-        console.log ('You lose!');
-        computerScore++
-      }
+function playRound(humanChoice, computerChoice) {
+  if (humanChoice === 'rock' && computerChoice === 'scissors') {
+    alert("Rock smashes scissors! You WIN!");
+    humanScore++;
+  } else if (humanChoice === 'paper' && computerChoice === 'rock') {
+    alert ("Paper covers rock! You WIN!");
+    humanScore++;
+  } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
+    alert ("Scissors cuts paper! You WIN!");
+    humanScore++;
+  } else if (humanChoice === 'rock' && computerChoice === 'paper') {
+    alert ("Paper covers rock! You LOSE!");
+    computerScore++;
+  } else if (humanChoice === 'paper' && computerChoice === 'scissors') {
+    alert ("Scissors cuts paper! You LOSE!");
+    computerScore++;
+  } else if (humanChoice === 'scissors' && computerChoice === 'rock') {
+    alert ("Rock smashes scissors! You LOSE!");
+    computerScore++;
+  } else {
+    alert ("You draw!");
+  }
 }
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+playRound(humanSelection, computerSelection);
+
+
+  
+
