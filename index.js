@@ -1,7 +1,5 @@
 console.log('Hello');
 
-
-
 // STEP 1: Write the logic to get the computer choice
 
 function getComputerChoice() {
@@ -30,7 +28,7 @@ function getHumanChoice() {
 
 // STEP 5: Write the logic to play the entire game which has 5 rounds. Keep track of scores and declare a winner. 
 
-playGame() {
+function playGame() {
 
   let computerScore = 0;
   let humanScore = 0;
@@ -39,58 +37,47 @@ playGame() {
 
   function playRound(humanChoice, computerChoice) {
     if (humanChoice === 'rock' && computerChoice === 'scissors') {
-      alert("Rock smashes scissors! You WIN!");
       humanScore++;
+      alert(`Rock smashes scissors! Your point! Your score: ${humanScore} Computer Score: ${computerScore}`);
     } else if (humanChoice === 'paper' && computerChoice === 'rock') {
-      alert ("Paper covers rock! You WIN!");
       humanScore++;
+      alert (`Paper covers rock! Your point! Your score: ${humanScore} Computer Score: ${computerScore}`);
     } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
-      alert ("Scissors cuts paper! You WIN!");
       humanScore++;
+      alert (`Scissors cuts paper! Your point! Your score: ${humanScore} Computer Score: ${computerScore}`);
     } else if (humanChoice === 'rock' && computerChoice === 'paper') {
-      alert ("Paper covers rock! You LOSE!");
       computerScore++;
+      alert (`Paper covers rock! Computer's point! Your score: ${humanScore} Computer Score: ${computerScore}`);
     } else if (humanChoice === 'paper' && computerChoice === 'scissors') {
-      alert ("Scissors cuts paper! You LOSE!");
       computerScore++;
+      alert (`Scissors cuts paper! Computer's point! Your score: ${humanScore} Computer Score: ${computerScore}`);
     } else if (humanChoice === 'scissors' && computerChoice === 'rock') {
-      alert ("Rock smashes scissors! You LOSE!");
       computerScore++;
+      alert (`Rock smashes scissors! Computer's point! Your score: ${humanScore} Computer Score: ${computerScore}`);
     } else {
-      alert ("You draw!");
+      alert (`You draw! Your score: ${humanScore} Computer Score: ${computerScore}`);
     }
   
   }
   
-  // Need to iterate round
-  round++;
-
-  // Need to make 5 rounds happen
-  if (round < 5) {
-    getChoices();
-  } else {
-    declareWinner();
-  }
-
-  function getChoices() {
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-  }
-  // CALLING this function to get fresh new choices for human and computer for each round
-  getChoices()
+  const humanSelection = getHumanChoice();
+  const computerSelection = getComputerChoice();
+  playRound(humanSelection, computerSelection);
+  
 
   //Declaring a winner
   function declareWinner() {
     if (humanScore > computerScore) {
-      alert (`The winner is YOU! Your score: ${humanScore} /nComputer Score: ${computerScore}`);
+      alert (`The winner is You! Your score: ${humanScore} Computer Score: ${computerScore}`);
     } else if (humanScore < computerScore) {
-      alert (`The winner is Computer! Your score: ${humanScore} /nComputer Score: ${computerScore}`);
+      alert (`The winner is Computer! Your score: ${humanScore} Computer Score: ${computerScore}`);
     } else {
-      alert (`No winner! It's a tie! Your score: ${humanScore} /nComputer Score: ${computerScore}`);
+      alert (`No winner! It's a tie! Your score: ${humanScore} Computer Score: ${computerScore}`);
     }
   }
 
 }
-  
+
+// Need to actually call the function for the game to play
+playGame();
 
