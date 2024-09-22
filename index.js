@@ -32,8 +32,6 @@ function playGame() {
 
   let computerScore = 0;
   let humanScore = 0;
-  let round = 0;
-
 
   function playRound(humanChoice, computerChoice) {
     if (humanChoice === 'rock' && computerChoice === 'scissors') {
@@ -60,20 +58,10 @@ function playGame() {
   
   }
   
-  const humanSelection = getHumanChoice();
-  const computerSelection = getComputerChoice();
-  playRound(humanSelection, computerSelection);
-  
-
-  //Declaring a winner
-  function declareWinner() {
-    if (humanScore > computerScore) {
-      alert (`The winner is You! Your score: ${humanScore} Computer Score: ${computerScore}`);
-    } else if (humanScore < computerScore) {
-      alert (`The winner is Computer! Your score: ${humanScore} Computer Score: ${computerScore}`);
-    } else {
-      alert (`No winner! It's a tie! Your score: ${humanScore} Computer Score: ${computerScore}`);
-    }
+  for (let i=0; i < 5; i++) {
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    const newChoice = playRound(humanSelection, computerSelection);
   }
 
 }
@@ -81,3 +69,15 @@ function playGame() {
 // Need to actually call the function for the game to play
 playGame();
 
+
+//Declaring a winner
+function declareWinner() {
+  if (humanScore > computerScore) {
+    alert (`The winner is You! Your score: ${humanScore} Computer Score: ${computerScore}`);
+  } else if (humanScore < computerScore) {
+    alert (`The winner is Computer! Your score: ${humanScore} Computer Score: ${computerScore}`);
+  } else {
+    alert (`No winner! It's a tie! Your score: ${humanScore} Computer Score: ${computerScore}`);
+  }
+}
+declareWinner();
