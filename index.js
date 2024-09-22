@@ -64,14 +64,7 @@ function playGame() {
     const newChoice = playRound(humanSelection, computerSelection);
   }
 
-}
-
-// Need to actually call the function for the game to play
-playGame();
-
-
-//Declaring a winner
-function declareWinner() {
+//Need to declare a winner
   if (humanScore > computerScore) {
     alert (`The winner is You! Your score: ${humanScore} Computer Score: ${computerScore}`);
   } else if (humanScore < computerScore) {
@@ -79,5 +72,8 @@ function declareWinner() {
   } else {
     alert (`No winner! It's a tie! Your score: ${humanScore} Computer Score: ${computerScore}`);
   }
+
 }
-declareWinner();
+
+// Need to actually call the function for the game to play
+playGame();
