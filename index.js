@@ -15,8 +15,13 @@ function getComputerChoice() {
 // STEP 2: Write the logic to get the human choice
 
 function getHumanChoice() {
-  let humanInput = prompt('Do you choose Rock,Paper or Scissors?');
-  let humanChoice = humanInput.toLowerCase();
+  let humanChoice = prompt('Do you choose Rock,Paper or Scissors?').toLowerCase();
+
+  while (humanChoice !== 'rock' && humanChoice !== 'paper' && humanChoice !== 'scissors') {
+    alert ('Invalid input! Please choose rock, paper or scissors')
+    humanChoice = prompt('Do you choose Rock,Paper or Scissors?').toLowerCase();
+  }
+
   return humanChoice;
 }
 
