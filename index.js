@@ -1,7 +1,6 @@
 console.log('Hello');
 
 // STEP 1: Write the logic to get the computer choice
-
 function getComputerChoice() {
   const choice = ['rock', 'paper', 'scissors'];
   const randChoice = choice[Math.floor(Math.random() * choice.length)];
@@ -10,10 +9,7 @@ function getComputerChoice() {
 
 }
 
-//getComputerChoice();
-
 // STEP 2: Write the logic to get the human choice
-
 function getHumanChoice() {
   let humanChoice = prompt('Do you choose Rock,Paper or Scissors?').toLowerCase();
 
@@ -25,13 +21,6 @@ function getHumanChoice() {
   return humanChoice;
 }
 
-//getHumanChoice(); 
-
-// STEP 3: Declare the players score variables and initialize them with a value of 0 
-
-// STEP 4: Write the logic to play a single round
-
-// STEP 5: Write the logic to play the entire game which has 5 rounds. Keep track of scores and declare a winner. 
 
 function playGame() {
 
@@ -64,9 +53,7 @@ function playGame() {
   }
   
   for (let i=0; i < 5; i++) {
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    const newChoice = playRound(humanSelection, computerSelection);
+    playRound(getHumanChoice(), getComputerChoice());
   }
 
 //Need to declare a winner
