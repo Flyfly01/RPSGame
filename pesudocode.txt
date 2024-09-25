@@ -1,0 +1,74 @@
+Your game will be played in the console against the computer
+STEP 0: Set up project structure 
+  1. Create GIT repository
+  2. Create blank HTML document with script tag
+  3. Create javascript document and link it to HTML
+  4. Test - In JS, write console.log ("Hello") and ensure it shows up in the console
+
+STEP 1: Write the logic to get the computer choice
+  . Write a function that will return different options randomly from the computer. The options will be "rock", "paper" and "scissors"
+  . The function should be called getComputerChoice
+  . The code of the function should RETURN one of the options of strings "rock", "paper" or "scissors"
+  . In order to do this randomly, you need to use the Math.random function
+  . Once the function is complete, use console.log to make sure the random options are showing up in the console
+  ** Can call the function in these early stages and ensure it works
+
+STEP 2: Write the logic to get the human choice
+  . Write a function that will take input from the human player and RETURN the input
+  . The function should be called getHumanChoice
+  . The code of this function: You need to use "prompt" to prompt the user for their input. Phrase it in a way to say "Please choose from rock, paper or scissors".   Then make sure to RETURN the option
+  . Once the function is complete, use console.log to make sure it's working
+  . You should also take into account the scenario where a human is stupid and doesn't enter one of the valid options and enters "apple" instead. A loop will be most useful if they keep doing this over and over and over
+  ** Can call the function in these early stages and ensure it works
+
+STEP 3: Declare both players scores variables
+  . Throughout the game, you will need to keep track of the human's score and the computer's score
+  . To do this, you should first declare variables for their score
+  . Everyone starts at 0 points so declare the variables and give them each and initial value of 0
+  ** Ensure these variables are in the global scope
+
+STEP 4: Write the logic to play a single round
+  . Name of function will be playRound
+  . Function will have 2 parameters: humanChoice and ComputerChoice. You will use the parameters to create different win/lose/tie scenarios
+  ** You should ensure the humanChoice parameter is case insensitive so that if a human enters "rock", "Rock" or "RocK", it won't matter. To do this, go back to the getHumanChoice function and add .toLowerCase()
+  . The code of playRound should break down ALL the scenarios of a win for the human/loss for the computer, loss for the human/win for the computer and a tie.
+  . In each win/lose scenario you should be doing 2 things: 1. Increment scores. 2. Display a message saying "You win! Rock smashes scissors! Your point! Your score:  Computer score:"
+
+STEP 5: Write the logic to play the entire game of 5 rounds
+  . The game has a total of 5 rounds. At the end of 5 rounds, a winner is declared
+  . You will create a function called playGame and move the playRound function (all your logic for one round) s well as your score variables into the playGame function
+  . The playGame function involves the following: Score variables, logic for one round, a way to get it to repeat to play 5 times, and a way to define a winner at the end of the 5 rounds
+  . We already have the score variables and logic for one round
+  . Now we need to get the one round to repeat 5 times and this can be done using a loop
+
+
+  for (let i=0; i < 5; i++) {
+    playRound(getHumanChoice(), getComputerChoice());
+  }
+
+  or 
+
+  for (let i=0; i < 5; i++) {
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection)
+  }
+
+or
+
+  let i = 0
+  while (i < 5) {
+    playRound(getHumanChoice(), getComputerChoice());
+    i++;
+  }
+
+
+  ODIN HINT: When you assign a function call to a variable, the return value of the function is assigned to the variable. When you access the variable afterwards, it will only provide the assigned value; it doesn't actually recall the function to get a new value every time. Hence the need to recall the actual choice functions to get new choices for each round. 
+
+  . Last step is to declare a winner
+  . Here we need to use if else conditions and the humanScore and computerScore variables
+  . Note that this goes after the loop
+  . Finally - Call the playGame function
+    
+
+
